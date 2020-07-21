@@ -71,7 +71,7 @@ public class SignupActivity extends AppCompatActivity {
                                 // Mark :- Storing in prefs to get the value in next Steps
                                 editor.putString("vendor_name", activitySignupBinding.etNameSignup.getText().toString()); // Storing Vendor name
                                 editor.putString("vendor_phone", activitySignupBinding.etNameSignup.getText().toString()); // Storing Vendor Phone
-
+                                editor.apply();
                                 startActivity(new Intent(SignupActivity.this, VendorDetails.class)); //then gettingh over
                             }
                         }
