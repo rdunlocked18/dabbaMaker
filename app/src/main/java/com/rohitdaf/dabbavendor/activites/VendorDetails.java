@@ -40,6 +40,26 @@ public class VendorDetails extends AppCompatActivity {
 
     }
     private void makeVendorAUser(){
+        String userId = firebaseAuth.getCurrentUser().getUid();
+        String vendorName = prefs.getString("vendor_name", null);
+        String vendorPhone = prefs.getString("vendor_phone", null);
+        String vendorShopName = activityVendorDetailsBinding.etVendorShopName.getText().toString();
+        String shopAddress = activityVendorDetailsBinding.etVendorShopAddress.getText().toString();
+        String deliverySlot;
+        String shidoriRatePerDay = activityVendorDetailsBinding.etRatePerDay.getText().toString();
+        String  shidoriRatePerWeek = activityVendorDetailsBinding.etRatePerWeek.getText().toString();
+        String  shidoriRatePerMonth = activityVendorDetailsBinding.etRatePerMonth.getText().toString() ;
+
+        if (activityVendorDetailsBinding.rbLunchTimeOnly.isChecked()){
+            deliverySlot = activityVendorDetailsBinding.rbLunchTimeOnly.getText().toString();
+        }else if(activityVendorDetailsBinding.rbDinnerTimeOnly.isChecked()){
+            deliverySlot = activityVendorDetailsBinding.rbDinnerTimeOnly.getText().toString();
+        }else {
+            deliverySlot = activityVendorDetailsBinding.rbLunchAndDinner.getText().toString();
+        }
+
+
+
 
 
 

@@ -3,8 +3,15 @@ package com.rohitdaf.dabbavendor.models;
 import com.rohitdaf.dabbavendor.activites.SignupActivity;
 
 public class VendorProfileModel {
-    String vendorName,vendorPhone,vendorEmail,vendorShopName,shopAddress,deliverySlot,shidoriRatePerDay,shidoriRatePerWeek,shidoriRatePerMonth;
+    String userId,vendorName,vendorPhone,vendorEmail,vendorShopName,shopAddress,deliverySlot,shidoriRatePerDay,shidoriRatePerWeek,shidoriRatePerMonth;
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getVendorName() {
         return vendorName;
