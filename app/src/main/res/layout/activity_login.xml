@@ -13,16 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
         android:gravity="center"
         >
-        
-        
-    <!--  <ImageView
-          android:layout_width="290dp"
-            android:layout_height="100dp"
-           android:src="@drawable/shidoriedit"
-         android:layout_gravity="center"/>-->
+
         
         <TextView
             android:layout_width="match_parent"
@@ -43,7 +36,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emaillog"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -61,6 +54,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emaillog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"/>
@@ -71,7 +65,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passlog"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -90,6 +84,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passlog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -129,6 +124,7 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/createNewAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create a new account! "

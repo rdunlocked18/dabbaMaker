@@ -55,7 +55,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/namesign"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -73,6 +73,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNameSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"/>
@@ -84,7 +85,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailsign"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -102,6 +103,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmailSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"/>
@@ -112,7 +114,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phonesign"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -130,6 +132,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhoneSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"/>
@@ -142,7 +145,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passsign"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -161,6 +164,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNormPassSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -169,7 +173,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/conpasssign"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -188,6 +192,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etConfirmPassSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -206,7 +211,7 @@
             />-->
 
         <Button
-            android:id="@+id/contained"
+            android:id="@+id/btnSignup"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginHorizontal="20dp"
