@@ -43,7 +43,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField"
+            android:id="@+id/emaillog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -62,7 +62,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
 
 
 
@@ -70,7 +71,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledpass"
+            android:id="@+id/passlog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -107,7 +108,7 @@
             />
 
         <Button
-            android:id="@+id/containedButton"
+            android:id="@+id/loginbtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginHorizontal="20dp"

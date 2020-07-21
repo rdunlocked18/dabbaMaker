@@ -12,13 +12,16 @@
         <activity android:name=".activites.ViewMenuDaily"></activity>
         <activity android:name=".activites.DailyMenuInsert" />
         <activity android:name=".activites.VendorDetails" />
-        <activity android:name=".activites.SignupActivity" />
-        <activity android:name=".activites.LoginActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activites.SignupActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activites.LoginActivity" >
+
         </activity>
         <activity android:name=".MainActivity">
 
