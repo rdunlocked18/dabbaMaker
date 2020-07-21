@@ -51,7 +51,7 @@
             android:focusedByDefault="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginHorizontal="20dp"
-            app:startIconDrawable="@drawable/ic_action_name"
+
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
@@ -80,16 +80,22 @@
 
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginHorizontal="20dp"
-            app:startIconDrawable="@drawable/ic_action_email"
+
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
+
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+
+
+
+
+                />
 
 
 
@@ -101,7 +107,7 @@
             android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10">
+            >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -141,6 +147,90 @@
         </RadioGroup>
         </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rateday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Rate per day"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="clear_text"
+            android:focusedByDefault="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginHorizontal="20dp"
+            app:startIconDrawable="@drawable/ic_action_rate"
+            app:startIconTint="@color/colorPrimary"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+
+
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rateweek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:hint="Rate per week"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="clear_text"
+            android:focusedByDefault="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginHorizontal="20dp"
+            app:startIconDrawable="@drawable/ic_action_rate"
+            app:startIconTint="@color/colorPrimary"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+
+
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ratemonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Rate per month"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="clear_text"
+            android:focusedByDefault="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginHorizontal="20dp"
+            app:startIconDrawable="@drawable/ic_action_rate"
+            app:startIconTint="@color/colorPrimary"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"/>
+
+
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
@@ -150,11 +240,13 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="15dp"
             android:elevation="10dp"
-            android:text="Signup"
+            android:text="Submit"
             android:textSize="18dp"
             android:shadowColor="@color/colorPrimary"
             style="Widget.MaterialComponents.Button.UnelevatedButton"
             />
+
+
 
 
 
