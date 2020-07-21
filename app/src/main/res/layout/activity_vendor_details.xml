@@ -121,20 +121,20 @@
             android:id="@+id/radio_button_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Morning"
+            android:text="Lunch Time"
             android:textSize="17dp"
             />
         <RadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Night"
+            android:text="Dinner Time"
             android:textSize="17dp"/>
         <RadioButton
             android:id="@+id/radio_button_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Morning and Night "
+            android:text="Both"
             android:textSize="17dp"/>
         </RadioGroup>
         </LinearLayout>
