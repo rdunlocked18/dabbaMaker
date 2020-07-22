@@ -23,6 +23,7 @@ public class SignupActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

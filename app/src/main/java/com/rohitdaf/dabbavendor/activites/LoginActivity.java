@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.rohitdaf.dabbavendor.MainActivity;
 import com.rohitdaf.dabbavendor.R;
 import com.rohitdaf.dabbavendor.databinding.ActivityLoginBinding;
@@ -21,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding activityLoginBinding;
     FirebaseAuth firebaseAuth;
     FirebaseAuth.AuthStateListener authStateListener;
-
+    DataSnapshot dataSnapshot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+
+
+
 
         activityLoginBinding.btnLoginMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +93,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+
         firebaseAuth.addAuthStateListener(authStateListener);
+
+
     }
 }

@@ -84,4 +84,18 @@ public class VendorProfileModel {
     public void setShidoriRatePerMonth(String shidoriRatePerMonth) {
         this.shidoriRatePerMonth = shidoriRatePerMonth;
     }
+
+
+    public VendorProfileModel(String userId, String vendorName, String vendorPhone, String vendorEmail, String vendorShopName, String shopAddress, String deliverySlot, String shidoriRatePerDay, String shidoriRatePerWeek, String shidoriRatePerMonth) {
+        this.userId = userId;
+        this.vendorName = vendorName;
+        this.vendorPhone = vendorPhone;
+        this.vendorEmail = vendorEmail;
+        this.vendorShopName = vendorShopName;
+        this.shopAddress = shopAddress;
+        this.deliverySlot = deliverySlot;
+        this.shidoriRatePerDay = shidoriRatePerDay;
+        this.shidoriRatePerWeek = shidoriRatePerWeek;
+        this.shidoriRatePerMonth = shidoriRatePerMonth;
+    }
 }
