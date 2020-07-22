@@ -2,14 +2,17 @@ package com.rohitdaf.dabbavendor.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rohitdaf.dabbavendor.MainActivity;
 import com.rohitdaf.dabbavendor.R;
 import com.rohitdaf.dabbavendor.databinding.ActivitySignupBinding;
 import com.rohitdaf.dabbavendor.databinding.ActivityVendorDetailsBinding;
@@ -22,6 +25,11 @@ public class VendorDetails extends AppCompatActivity {
     DatabaseReference mdatabaseReference;
     FirebaseAuth firebaseAuth;
     String userId ;
+    String TAG ="VendorDetails";
+    String vendorName ;
+    String vendorPhone ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +37,6 @@ public class VendorDetails extends AppCompatActivity {
         activityVendorDetailsBinding = ActivityVendorDetailsBinding.inflate(getLayoutInflater());
         View view = activityVendorDetailsBinding.getRoot();
         setContentView(view);
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
         //inits
@@ -37,25 +44,46 @@ public class VendorDetails extends AppCompatActivity {
         prefs = getSharedPreferences("MySignupPrefs", 0);
         mdatabaseReference = FirebaseDatabase.getInstance().getReference();
         // no need edit just use >> editor = prefs.edit();
+
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+
+        if(vendorName== null) {
+            Log.d(TAG, "makeVendorAUser: in if");
+            activityVendorDetailsBinding.etVendorNameExcept.setVisibility(View.VISIBLE);
+
+        }if( vendorPhone == null){
+            activityVendorDetailsBinding.etVendorPhoneExcept.setVisibility(View.VISIBLE);
+        }
+
+
+
+
         activityVendorDetailsBinding.btnCreateVendorFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makeVendorAUser();
+                startActivity(new Intent(VendorDetails.this, MainActivity.class));
             }
         });
 
     }
     private void makeVendorAUser(){
 
-        String vendorName = prefs.getString("vendor_name", null);
-        String vendorPhone = prefs.getString("vendor_phone", null);
-        if(vendorName.equals("")){
-            activityVendorDetailsBinding.etVendorName.setVisibility(View.VISIBLE);
+//        String vendorName = prefs.getString("vendor_name", null);
+//        String vendorPhone = prefs.getString("vendor_phone", null);
+
+        if(vendorName== null || vendorPhone == null){
+            Log.d(TAG, "makeVendorAUser: in if");
+            //activityVendorDetailsBinding.etVendorNameExcept.setVisibility(View.VISIBLE);
             vendorName = activityVendorDetailsBinding.etVendorName.getText().toString();
 
-        }if (vendorPhone.equals("")){
-            activityVendorDetailsBinding.etVendorPhone.setVisibility(View.VISIBLE);
+            //activityVendorDetailsBinding.etVendorPhoneExcept.setVisibility(View.VISIBLE);
             vendorPhone = activityVendorDetailsBinding.etVendorPhone.getText().toString();
+        }else{
+            vendorName = prefs.getString("vendor_name", null);
+            vendorPhone = prefs.getString("vendor_phone", null);
         }
 
 
