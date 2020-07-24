@@ -12,12 +12,16 @@
 
 
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+       >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +31,8 @@
             android:text="Hello Vendor ! "
             android:textColor="@color/colorPrimaryDark"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -180,7 +185,8 @@
                 android:id="@+id/food5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textMultiLine"
+                android:lines="3" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -192,7 +198,6 @@
             style="Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            andr
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="15dp"
             android:elevation="10dp"
@@ -202,6 +207,6 @@
 
 
     </LinearLayout>
-
+</ScrollView>
 
 </LinearLayout>

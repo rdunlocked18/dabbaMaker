@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rohitdaf.dabbavendor.activites.DailyMenuInsert;
 import com.rohitdaf.dabbavendor.activites.VendorDetails;
 import com.rohitdaf.dabbavendor.databinding.ActivityMainBinding;
 
@@ -38,7 +39,16 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //check profile exists or not
-        Log.d(TAG, "onDataChange: stari");
+        Log.d(TAG, "onDatahange: stari");
+
+        activityMainBinding.btnGoToMenuUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DailyMenuInsert.class));
+
+            }
+        });
+
 
 
 
