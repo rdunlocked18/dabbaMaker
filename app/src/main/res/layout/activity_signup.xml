@@ -27,7 +27,7 @@
             android:layout_height="100dp"
             android:src="@drawable/shidori"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="40dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:hint="Name "
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/colorAccent"

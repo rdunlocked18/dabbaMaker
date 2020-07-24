@@ -1,9 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version = "1.0" encoding = "utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.ViewMenuDaily">
+    android:layout_centerInParent="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/keepcalm"
+                android:gravity="center"
+                android:text="Hello Vendor ! "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/keepcalm"
+                android:gravity="center"
+                android:text="Whats in the kitchen today?"
+                android:textColor="@color/colorAccent"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Please enter the the menu"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"/>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:focusedByDefault="true"
+                android:hint="Item 1"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_food1"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:focusedByDefault="true"
+                android:hint="Item 2"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="0dp"
+                app:boxCornerRadiusTopStart="0dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_food1"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="7dp"
+                android:focusedByDefault="true"
+                android:hint="Item 3"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="0dp"
+                app:boxCornerRadiusTopStart="0dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_food1"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:focusedByDefault="true"
+                android:hint="Item 4"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="0dp"
+                app:boxCornerRadiusTopStart="0dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_food1"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:focusedByDefault="true"
+                android:hint="Other if any"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_food1"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/btnCreateVendorFinal"
+                style="Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:elevation="10dp"
+                android:shadowColor="@color/colorPrimary"
+                android:text="Submit"
+                android:textSize="18sp" />
+
+
+</LinearLayout>
+
+</LinearLayout>

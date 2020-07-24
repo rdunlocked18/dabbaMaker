@@ -12,14 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activites.ViewMenuDaily"></activity>
-        <activity android:name=".activites.DailyMenuInsert" />
+        <activity android:name=".activites.DailyMenuInsert" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".activites.VendorDetails" />
         <activity android:name=".activites.SignupActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".activites.LoginActivity" >
