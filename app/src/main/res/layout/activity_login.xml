@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:src="@drawable/shidori"
+        android:src="@drawable/shidori_min"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"/>
 

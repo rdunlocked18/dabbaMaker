@@ -7,6 +7,15 @@ public class MenuModel {
     Bitmap menuImage;
     String menuSalad,menuMeal,menuFoodMore,menuFoodDesert,menuExtra;
 
+    public MenuModel( String menuSalad, String menuMeal, String menuFoodMore, String menuFoodDesert, String menuExtra) {
+
+        this.menuSalad = menuSalad;
+        this.menuMeal = menuMeal;
+        this.menuFoodMore = menuFoodMore;
+        this.menuFoodDesert = menuFoodDesert;
+        this.menuExtra = menuExtra;
+    }
+
     public Bitmap getMenuImage() {
         return menuImage;
     }

@@ -1,43 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update Profile" />
+
+
+            <Button
+                android:id="@+id/btnGoToMenuUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update / add Today's Menu" />
+
+
+            <Button
+                android:id="@+id/btnGoToAddImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Images" />
+
+            <Button
+                android:id="@+id/action4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout" />
+
+            <Button
+                android:id="@+id/action5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders" />
 
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/action1"
-        android:text="Update Profile"/>
+        </LinearLayout>
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnGoToMenuUpdate"
-        android:text="Update / add Today's Menu"/>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/action3"
-        android:text="Add Images"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/action4"
-        android:text="Logout"/>
+        <include layout="@layout/bottom_sheet"
+             />
 
 
 
 
 
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

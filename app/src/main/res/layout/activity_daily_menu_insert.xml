@@ -74,7 +74,7 @@
             app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food1"
+                android:id="@+id/etfood1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -106,7 +106,7 @@
             app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food2"
+                android:id="@+id/etfood2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -132,7 +132,7 @@
             app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food3"
+                android:id="@+id/etfood3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -157,7 +157,7 @@
             app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food4"
+                android:id="@+id/etfood4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -182,7 +182,7 @@
             app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food5"
+                android:id="@+id/etfood5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
@@ -194,7 +194,7 @@
 
 
         <Button
-            android:id="@+id/btnCreateVendorFinal"
+            android:id="@+id/btnAddToMenu"
             style="Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
