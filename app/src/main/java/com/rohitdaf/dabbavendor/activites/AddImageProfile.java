@@ -1,9 +1,11 @@
 package com.rohitdaf.dabbavendor.activites;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.util.Function;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,8 +21,17 @@ import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.features.ReturnMode;
 
 import com.esafirm.imagepicker.model.Image;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.rohitdaf.dabbavendor.MainActivity;
 import com.rohitdaf.dabbavendor.databinding.ActivityAddImageProfileBinding;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import kotlin.Unit;
@@ -30,12 +41,23 @@ public class AddImageProfile extends AppCompatActivity {
     ActivityAddImageProfileBinding activityAddImageProfileBinding;
     String TAG = "AddImageProfile";
     public static final int REQUEST_CAMERA = 101;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+    FirebaseAuth firebaseAuth;
+    String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAddImageProfileBinding = ActivityAddImageProfileBinding.inflate(getLayoutInflater());
         View view = activityAddImageProfileBinding.getRoot();
         setContentView(view);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        storageReference = FirebaseStorage.getInstance().getReference().child("vendorImages/"+ userId+"_cover");;
+
+
 
 
         activityAddImageProfileBinding.btnAddImage.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +88,53 @@ public class AddImageProfile extends AppCompatActivity {
         if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
 
             Image image = ImagePicker.getFirstImageOrNull(data);
+
+            Uri fileUri = data.getData();
             String path = image.getPath();
+            ProgressDialog progressDialog
+                    = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+
+
+
+            // Progress Listener for loading
+            // percentage on the dialog box
+            storageReference.putFile(Uri.fromFile(new File(path)))
+                    .addOnSuccessListener(
+                            taskSnapshot -> {
+                                // Image uploaded successfully
+                                // Dismiss dialog
+                                progressDialog.dismiss();
+                                Toast
+                                        .makeText(AddImageProfile.this,
+                                                "Image Uploaded!!",
+                                                Toast.LENGTH_SHORT)
+                                        .show();
+                            })
+
+                    .addOnFailureListener(e -> {
+                        // Error, Image not uploaded
+                        progressDialog.dismiss();
+                        Toast
+                                .makeText(AddImageProfile.this,
+                                        "Failed " + e.getMessage(),
+                                        Toast.LENGTH_SHORT)
+                                .show();
+                    })
+                    .addOnProgressListener(
+                            taskSnapshot -> {
+                                double progress
+                                        = (100.0
+                                        * taskSnapshot.getBytesTransferred()
+                                        / taskSnapshot.getTotalByteCount());
+                                progressDialog.setMessage(
+                                        "Uploaded "
+                                                + (int)progress + "%");
+                            });
+
+
             Glide.with(AddImageProfile.this)
                     .asBitmap()
                     .load(path)

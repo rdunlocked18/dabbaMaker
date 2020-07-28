@@ -2,12 +2,15 @@ package com.rohitdaf.dabbavendor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         final View view = activityMainBinding.getRoot();
         setContentView(view);
+        getSupportActionBar().hide();
         mFirebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -166,20 +170,30 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        activityMainBinding.btnGoToMenuUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DailyMenuInsert.class));
+        activityMainBinding.btnGoToMenuUpdate.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, DailyMenuInsert.class)));
 
-            }
-        });
+        activityMainBinding.btnGoToAddImage.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, AddImageProfile.class)));
 
-        activityMainBinding.btnGoToAddImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddImageProfile.class));
-            }
-        });
+//        activityMainBinding.onlineOfflineSwitch.setChecked(false);
+//        activityMainBinding.onlineOfflineSwitch.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) (buttonView, isChecked) -> {
+//
+//            if(isChecked){
+//                final int sdk = Build.VERSION.SDK_INT;
+//                if(sdk < Build.VERSION_CODES.JELLY_BEAN) {
+//                    activityMainBinding.linearOnlineOffline.setBackgroundDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.green_gradient_online) );
+//                } else {
+//                    activityMainBinding.linearOnlineOffline.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.green_gradient_online));
+//                }
+//            }else {
+//                final int sdk = Build.VERSION.SDK_INT;
+//                if(sdk < Build.VERSION_CODES.JELLY_BEAN) {
+//                    activityMainBinding.linearOnlineOffline.setBackgroundDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.red_gradient_offline) );
+//                } else {
+//                    activityMainBinding.linearOnlineOffline.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.red_gradient_offline));
+//                }
+//            }
+//
+//        });
 
     }
 
@@ -213,10 +227,24 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+        activityMainBinding.cardLogout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logout Success", Toast.LENGTH_SHORT).show();
+        });
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    public void showToastOnClick(View view) {
+        Toast.makeText(this, "yet to implement", Toast.LENGTH_SHORT).show();
+
     }
 }
