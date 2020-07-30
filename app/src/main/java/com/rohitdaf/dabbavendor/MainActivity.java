@@ -34,6 +34,7 @@ import com.google.firebase.storage.StorageReference;
 import com.rohitdaf.dabbavendor.activites.AddImageProfile;
 import com.rohitdaf.dabbavendor.activites.DailyMenuInsert;
 import com.rohitdaf.dabbavendor.activites.LoginActivity;
+import com.rohitdaf.dabbavendor.activites.UpdateProfileVendor;
 import com.rohitdaf.dabbavendor.activites.VendorDetails;
 import com.rohitdaf.dabbavendor.databinding.ActivityLoginBinding;
 import com.rohitdaf.dabbavendor.databinding.ActivityMainBinding;
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         activityMainBinding.btnGoToMenuUpdate.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, DailyMenuInsert.class)));
-
+        activityMainBinding.homeDashboardProfile.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UpdateProfileVendor.class)));
         activityMainBinding.btnGoToAddImage.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, AddImageProfile.class)));
 
 //        activityMainBinding.onlineOfflineSwitch.setChecked(false);
@@ -214,34 +215,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            finish();
+        }else {
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.child("Vendors").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).exists()) {
+                        //do ur stuff
+                        Log.d(TAG, "onDataChange: dataExists");
+                        // Toast.makeText(MainActivity.this, "Hi Welcome To Dashboard", Toast.LENGTH_SHORT).show();
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("Vendors").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).exists()) {
-                    //do ur stuff
-                    Log.d(TAG, "onDataChange: dataExists");
-                   // Toast.makeText(MainActivity.this, "Hi Welcome To Dashboard", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    //do something if not exists
-                    Log.d(TAG, "onDataChange: NoDta");
-                    Toast.makeText(MainActivity.this, "You Need to Create Profile", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,VendorDetails.class));
+                    } else {
+                        //do something if not exists
+                        Log.d(TAG, "onDataChange: NoDta");
+                        Toast.makeText(MainActivity.this, "You Need to Create Profile", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, VendorDetails.class));
+                    }
                 }
-            }
 
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(MainActivity.this, "Can'Connect To Database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Can'Connect To Database", Toast.LENGTH_SHORT).show();
 
-            }
+                }
 
 
-        });
-
+            });
+        }
 
     }
 
@@ -255,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showToastOnClick(View view) {
-        Toast.makeText(this, "yet to implement", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Coming Soon ! ", Toast.LENGTH_SHORT).show();
 
     }
 }

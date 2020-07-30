@@ -7,7 +7,7 @@
     android:layout_centerInParent="true"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    >
+    android:background="@color/colorDarkBackground">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,8 @@
         android:layout_gravity="center_horizontal"
         android:text="Please complete your profile"
         android:textSize="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"/>
 
 
 <ScrollView
@@ -103,6 +104,8 @@
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
 
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
@@ -112,7 +115,8 @@
                 android:id="@+id/etVendorShopName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -133,13 +137,17 @@
             app:boxStrokeColor="@color/colorAccent"
             app:endIconDrawable="@drawable/ic_location"
             app:endIconMode="custom"
-            app:startIconTint="@color/colorPrimary">
+            app:startIconTint="@color/colorPrimary"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVendorShopAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +162,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="65dp"
                 android:text="Delivery slots"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:textColor="@color/white"/>
 
             <RadioGroup
                 android:id="@+id/rgDeliverySlot"
@@ -169,21 +178,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Lunch Time"
-                    android:textSize="17dp" />
+                    android:textSize="17dp"
+                    android:textColor="@color/white"/>
 
                 <RadioButton
                     android:id="@+id/rbDinnerTimeOnly"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Dinner Time"
-                    android:textSize="17dp" />
+                    android:textSize="17dp"
+                    android:textColor="@color/white"/>
 
                 <RadioButton
                     android:id="@+id/rbLunchAndDinner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Both"
-                    android:textSize="17dp" />
+                    android:textSize="17dp"
+                    android:textColor="@color/white"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -202,13 +214,17 @@
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
             app:startIconDrawable="@drawable/ic_action_rate"
-            app:startIconTint="@color/colorPrimary">
+            app:startIconTint="@color/colorPrimary"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRatePerDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -228,13 +244,17 @@
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
             app:startIconDrawable="@drawable/ic_action_rate"
-            app:startIconTint="@color/colorPrimary">
+            app:startIconTint="@color/colorPrimary"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRatePerWeek"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -253,13 +273,17 @@
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
             app:startIconDrawable="@drawable/ic_action_rate"
-            app:startIconTint="@color/colorPrimary">
+            app:startIconTint="@color/colorPrimary"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRatePerMonth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>

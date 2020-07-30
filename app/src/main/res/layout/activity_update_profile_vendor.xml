@@ -1,0 +1,312 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/colorDarkBackground">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/keepcalm"
+        android:gravity="center"
+        android:text="Update Profile"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="32dp"
+        android:textStyle="bold" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/profile_placeholder" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etVendorNameExcept"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:focusedByDefault="true"
+                android:hint="Your Name"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVendorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etVendorPhoneExcept"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:focusedByDefault="true"
+                android:hint="Contact Number"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVendorPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:focusedByDefault="true"
+                android:hint="Name of shop"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconTint="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVendorShopName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- idhar dhkna Custom Add kiya hai  usse samzega -->
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:hint="Address"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconDrawable="@drawable/ic_location"
+                app:endIconMode="custom"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVendorShopAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="65dp"
+                    android:text="Delivery slots"
+                    android:textSize="25dp"
+                    android:textColor="@color/white"/>
+
+                <RadioGroup
+                    android:id="@+id/rgDeliverySlot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:checkedButton="@+id/radio_button_1">
+
+                    <RadioButton
+                        android:id="@+id/rbLunchTimeOnly"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Lunch Time"
+                        android:textSize="17dp"
+                        android:textColor="@color/white"/>
+
+                    <RadioButton
+                        android:id="@+id/rbDinnerTimeOnly"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Dinner Time"
+                        android:textSize="17dp"
+                        android:textColor="@color/white"/>
+
+                    <RadioButton
+                        android:id="@+id/rbLunchAndDinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Both"
+                        android:textSize="17dp"
+                        android:textColor="@color/white"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:focusedByDefault="true"
+                android:hint="Rate per day"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_rate"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRatePerDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="7dp"
+                android:focusedByDefault="true"
+                android:hint="Rate per week"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_rate"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRatePerWeek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:focusedByDefault="true"
+                android:hint="Rate per month"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_action_rate"
+                app:startIconTint="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                app:endIconTint="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRatePerMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btnCreateVendorFinal"
+                style="Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:elevation="10dp"
+                android:shadowColor="@color/colorPrimary"
+                android:text="Update"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
