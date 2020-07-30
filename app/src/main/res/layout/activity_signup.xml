@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:layout_centerInParent="true"
-
+    android:background="@color/colorDarkBackground"
     >
 
     <ScrollView
@@ -25,7 +25,7 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="100dp"
-            android:src="@drawable/shidori_min"
+            android:src="@drawable/white_shidorimin"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"/>
 
@@ -33,19 +33,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create Account"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:textSize="30dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:fontFamily="@font/keepcalm"/>
+            android:fontFamily="@font/keepcalm"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create a new Shidori Profile "
             android:textSize="20dp"
-            />
+            android:textColor="@color/white"/>
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -63,13 +64,16 @@
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etNameSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                android:textColor="@color/white"/>
 
 
 
@@ -93,13 +97,16 @@
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmailSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"/>
 
 
 
@@ -122,13 +129,16 @@
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPhoneSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:textColor="@color/white"/>
 
 
 
@@ -153,6 +163,8 @@
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
 
             >
 
@@ -161,7 +173,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                />
+                android:textColor="@color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,6 +193,8 @@
             app:startIconTint="@color/colorPrimary"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
+            android:textColorHint="@color/white"
+            app:endIconTint="@color/white"
 
             >
 
@@ -189,7 +203,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -216,26 +230,31 @@
             style="Widget.MaterialComponents.Button.UnelevatedButton"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Already have a account? "
-            android:layout_marginLeft="-50dp"
-            android:layout_marginTop="15dp"
-            android:textSize="16dp"
-            />
-        <TextView
-            android:id="@+id/moveToLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login ! "
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="-22dp"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:text="Already have a account? "
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/moveToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login ! "
+
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp" />
+        </LinearLayout>
 
 
     </LinearLayout>

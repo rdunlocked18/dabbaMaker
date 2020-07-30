@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Registry;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.FirebaseError;
@@ -24,11 +30,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 import com.rohitdaf.dabbavendor.activites.AddImageProfile;
 import com.rohitdaf.dabbavendor.activites.DailyMenuInsert;
+import com.rohitdaf.dabbavendor.activites.LoginActivity;
 import com.rohitdaf.dabbavendor.activites.VendorDetails;
+import com.rohitdaf.dabbavendor.databinding.ActivityLoginBinding;
 import com.rohitdaf.dabbavendor.databinding.ActivityMainBinding;
 
+import java.io.InputStream;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -168,7 +178,11 @@ public class MainActivity extends AppCompatActivity {
         title.setText("Hellop");
 
 
-
+        activityMainBinding.cardLogout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Toast.makeText(this, "Logout Success", Toast.LENGTH_SHORT).show();
+        });
 
         activityMainBinding.btnGoToMenuUpdate.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, DailyMenuInsert.class)));
 
@@ -228,10 +242,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        activityMainBinding.cardLogout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            Toast.makeText(this, "Logout Success", Toast.LENGTH_SHORT).show();
-        });
+
     }
 
 
@@ -248,3 +259,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
