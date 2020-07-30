@@ -65,7 +65,7 @@ public class UpdateProfileVendor extends AppCompatActivity {
         progressDoalog = new ProgressDialog(UpdateProfileVendor.this);
         progressDoalog.setMessage("Fetching Images and Data ... ");
         progressDoalog.setTitle("Please Wait..");
-        progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDoalog.show();
         activityUpdateProfileVendorBinding.profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +82,12 @@ public class UpdateProfileVendor extends AppCompatActivity {
                         .imageDirectory("Shidori")
                         .showCamera(true) // show camera or not (true by default)
                         .start();
-            }
-        });
+            }});
 
         activityUpdateProfileVendorBinding.btnCreateVendorFinal.setOnClickListener(v -> {
             updateUserToFirebase();
             Toast.makeText(this, "User Updated", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 
@@ -115,7 +115,7 @@ public class UpdateProfileVendor extends AppCompatActivity {
                 vendorPhone,vendorEmail,vendorShopName,shopAddress,
                 deliverySlot,shidoriRatePerDay,shidoriRatePerWeek,shidoriRatePerMonth);
 
-        mdatabaseReference.child("Vendors").child(userId).setValue(vendorProfileModel);
+        mdatabaseReference.child("Vendors").child(userId).child("vendorDetails").setValue(vendorProfileModel);
 
 
 
@@ -153,7 +153,7 @@ public class UpdateProfileVendor extends AppCompatActivity {
                                     downloadUrl = uri.toString();
                                     updateToFirebaseDB();
 
-                                    Glide.with(UpdateProfileVendor.this)
+                                    Glide.with(getApplicationContext())
                                             .asBitmap()
                                             .load(uri)
                                             .centerCrop()
@@ -225,14 +225,15 @@ public class UpdateProfileVendor extends AppCompatActivity {
                 if(snapshot.child("Vendors").child(userId).child("ProfileImage").exists()){
                     storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
 
-                        Glide.with(UpdateProfileVendor.this)
+                        Glide.with(getApplicationContext())
                                 .asBitmap()
                                 .load(uri)
                                 .centerCrop()
                                 .into(activityUpdateProfileVendorBinding.profileImage);
 
-
+                        progressDoalog.dismiss();
                     }).addOnFailureListener(exception -> {
+                        progressDoalog.dismiss();
                         Log.e(TAG, "onDataChange: cannot get Image" );
                     });
                 }else {
@@ -242,27 +243,29 @@ public class UpdateProfileVendor extends AppCompatActivity {
 
                 if(snapshot.child("Vendors").child(userId).exists()){
 
-                    activityUpdateProfileVendorBinding.etVendorName.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorName").getValue()).toString());
-                    activityUpdateProfileVendorBinding.etVendorPhone.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorPhone").getValue()).toString());
-                    activityUpdateProfileVendorBinding.etVendorShopName.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorShopName").getValue()).toString());
-                    activityUpdateProfileVendorBinding.etVendorShopAddress.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shopAddress").getValue()).toString());
-                    String deliverySlot = Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString();
+                    activityUpdateProfileVendorBinding.etVendorName.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("vendorName").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etVendorPhone.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("vendorPhone").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etVendorShopName.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("vendorShopName").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etVendorShopAddress.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shopAddress").getValue()).toString());
+                    String deliverySlot = Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("deliverySlot").getValue()).toString();
 
-                    if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbLunchTimeOnly.getText().toString())){
+                    if (deliverySlot.equals("Lunch Time")){
                         activityUpdateProfileVendorBinding.rbLunchTimeOnly.setChecked(true);
-                    }else if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbDinnerTimeOnly.getText().toString()))
+                    }else if (deliverySlot.equals("Dinner Time"))
                     {
                         activityUpdateProfileVendorBinding.rbDinnerTimeOnly.setChecked(true);
-                    }else if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbLunchAndDinner.getText().toString())){
+                    }else if (deliverySlot.equals("Both")){
                         activityUpdateProfileVendorBinding.rbLunchAndDinner.setChecked(true);
                     }else {
                         Toast.makeText(UpdateProfileVendor.this, "Cannot Get Delivery Slot", Toast.LENGTH_SHORT).show();
                     }
 
 
-                    activityUpdateProfileVendorBinding.etRatePerDay.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString());
-                    activityUpdateProfileVendorBinding.etRatePerWeek.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerWeek").getValue()).toString());
-                    activityUpdateProfileVendorBinding.etRatePerMonth.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerMonth").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etRatePerDay.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shidoriRatePerDay").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etRatePerWeek.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shidoriRatePerWeek").getValue()).toString());
+                    activityUpdateProfileVendorBinding.etRatePerMonth.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shidoriRatePerMonth").getValue()).toString());
+
+                    progressDoalog.dismiss();
                 }
             }
 

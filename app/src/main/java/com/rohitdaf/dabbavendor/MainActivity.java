@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.child("Vendors").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).exists()) {
+                    if (dataSnapshot.child("Vendors").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("vendorDetails").exists()) {
                         //do ur stuff
                         Log.d(TAG, "onDataChange: dataExists");
                         // Toast.makeText(MainActivity.this, "Hi Welcome To Dashboard", Toast.LENGTH_SHORT).show();

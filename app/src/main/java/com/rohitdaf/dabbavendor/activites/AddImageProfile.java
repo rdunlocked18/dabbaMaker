@@ -78,7 +78,7 @@ public class AddImageProfile extends AppCompatActivity {
 
 
         progressDoalog = new ProgressDialog(AddImageProfile.this);
-        progressDoalog.setMessage("Fetching Images and Data ... ");
+        progressDoalog.setMessage("Fetching Images and Profile Info ... ");
         progressDoalog.setTitle("Please Wait..");
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDoalog.show();
@@ -212,9 +212,10 @@ public class AddImageProfile extends AppCompatActivity {
                                 .load(uri)
                                 .centerCrop()
                                 .into(activityAddImageProfileBinding.coverImage);
-
+                        progressDoalog.dismiss();
 
                     }).addOnFailureListener(exception -> {
+                        progressDoalog.dismiss();
                         Log.e(TAG, "onDataChange: cannot get Image" );
                     });
                 }else {
@@ -222,17 +223,17 @@ public class AddImageProfile extends AppCompatActivity {
                     Log.e(TAG, "onDataChange: cannot get Image" );
                 }
 
-                if(snapshot.child("Vendors").child(userId).exists()){
-                    activityAddImageProfileBinding.viewShopnameProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorShopName").getValue()).toString());
-                    activityAddImageProfileBinding.viewShopdescProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shopAddress").getValue()).toString());
-                    activityAddImageProfileBinding.viewShopPriceProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString());
+                if(snapshot.child("Vendors").child(userId).child("vendorDetails").exists()){
+                    activityAddImageProfileBinding.viewShopnameProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("vendorShopName").getValue()).toString());
+                    activityAddImageProfileBinding.viewShopdescProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shopAddress").getValue()).toString());
+                    activityAddImageProfileBinding.viewShopPriceProfile.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorDetails").child("shidoriRatePerDay").getValue()).toString());
                 }
-                progressDoalog.dismiss();
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                progressDoalog.dismiss();
             }
         });
 

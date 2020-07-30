@@ -107,7 +107,7 @@ public class VendorDetails extends AppCompatActivity {
                 vendorPhone,vendorEmail,vendorShopName,shopAddress,
                 deliverySlot,shidoriRatePerDay,shidoriRatePerWeek,shidoriRatePerMonth);
 
-        mdatabaseReference.child("Vendors").child(userId).setValue(vendorProfileModel);
+        mdatabaseReference.child("Vendors").child(userId).child("vendorDetails").setValue(vendorProfileModel);
 
 
 
