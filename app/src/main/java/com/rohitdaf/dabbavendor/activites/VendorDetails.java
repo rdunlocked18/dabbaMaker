@@ -65,6 +65,7 @@ public class VendorDetails extends AppCompatActivity {
             public void onClick(View v) {
                 makeVendorAUser();
                 startActivity(new Intent(VendorDetails.this, MainActivity.class));
+                finish();
             }
         });
 

@@ -71,9 +71,9 @@ public class IntroActivity extends AppCompatActivity {
         // fill list screen
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Fresh Food","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img1));
-        mList.add(new ScreenItem("Fast Delivery","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img2));
-        mList.add(new ScreenItem("Easy Payment","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img3));
+        mList.add(new ScreenItem("Create Profile","Be a Shidori vendor just by Signing up and Creating Profile within Minutes , set live status , daily Menu and delivery Slots",R.drawable.img2));
+        mList.add(new ScreenItem("Live Subscribers","Get Live Status of all the Subscribers for Your Current Delivery , So Make Tiffins just For the Live Customers ! Save food save Life ",R.drawable.ic_subscribe_slide));
+        mList.add(new ScreenItem("Great Profits","With Shidori you can earn as much as you can with our Platform with all easy Dashboard and Management",R.drawable.img3));
 
         // setup viewpager
         screenPager =findViewById(R.id.screen_viewpager);
@@ -151,7 +151,7 @@ public class IntroActivity extends AppCompatActivity {
 
                 //open main activity
 
-                Intent mainActivity = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent mainActivity = new Intent(getApplicationContext(),SignupActivity.class);
                 startActivity(mainActivity);
                 // also we need to save a boolean value to storage so next time when the user run the app
                 // we could know that he is already checked the intro screen activity

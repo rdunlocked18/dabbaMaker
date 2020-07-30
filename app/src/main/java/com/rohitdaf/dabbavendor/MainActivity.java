@@ -182,7 +182,9 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.cardLogout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
             Toast.makeText(this, "Logout Success", Toast.LENGTH_SHORT).show();
+            finish();
         });
 
         activityMainBinding.btnGoToMenuUpdate.setOnClickListener((View.OnClickListener) v -> startActivity(new Intent(MainActivity.this, DailyMenuInsert.class)));

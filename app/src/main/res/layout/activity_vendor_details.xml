@@ -53,13 +53,15 @@
             android:visibility="gone"
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
-            app:startIconTint="@color/colorPrimary">
+            app:startIconTint="@color/white"
+            app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVendorName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,17 +78,18 @@
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-
+            app:hintTextColor="@color/white"
             app:boxStrokeColor="@color/colorAccent"
             app:endIconMode="clear_text"
-            app:startIconTint="@color/colorPrimary"
+            app:startIconTint="@color/white"
             android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVendorPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
