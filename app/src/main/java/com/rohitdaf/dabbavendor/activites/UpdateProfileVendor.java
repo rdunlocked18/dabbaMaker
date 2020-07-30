@@ -28,6 +28,7 @@ import com.google.firebase.storage.StorageReference;
 import com.rohitdaf.dabbavendor.R;
 import com.rohitdaf.dabbavendor.databinding.ActivityUpdateProfileVendorBinding;
 import com.rohitdaf.dabbavendor.models.ImageModel;
+import com.rohitdaf.dabbavendor.models.VendorProfileModel;
 
 import java.io.File;
 import java.util.Objects;
@@ -64,7 +65,7 @@ public class UpdateProfileVendor extends AppCompatActivity {
         progressDoalog = new ProgressDialog(UpdateProfileVendor.this);
         progressDoalog.setMessage("Fetching Images and Data ... ");
         progressDoalog.setTitle("Please Wait..");
-        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDoalog.show();
         activityUpdateProfileVendorBinding.profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +85,47 @@ public class UpdateProfileVendor extends AppCompatActivity {
             }
         });
 
-        //activityUpdateProfileVendorBinding.btnCreateVendorFinal
+        activityUpdateProfileVendorBinding.btnCreateVendorFinal.setOnClickListener(v -> {
+            updateUserToFirebase();
+            Toast.makeText(this, "User Updated", Toast.LENGTH_SHORT).show();
+        });
     }
+
+    private void updateUserToFirebase() {
+
+            String vendorName = Objects.requireNonNull(activityUpdateProfileVendorBinding.etVendorName.getText()).toString();
+            String vendorPhone = Objects.requireNonNull(activityUpdateProfileVendorBinding.etVendorName.getText()).toString();
+            String vendorEmail = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+            String vendorShopName = Objects.requireNonNull(activityUpdateProfileVendorBinding.etVendorShopName.getText()).toString();
+            String shopAddress = Objects.requireNonNull(activityUpdateProfileVendorBinding.etVendorShopAddress.getText()).toString();
+            String deliverySlot;
+            String shidoriRatePerDay = Objects.requireNonNull(activityUpdateProfileVendorBinding.etRatePerDay.getText()).toString();
+            String  shidoriRatePerWeek = Objects.requireNonNull(activityUpdateProfileVendorBinding.etRatePerWeek.getText()).toString();
+            String  shidoriRatePerMonth = Objects.requireNonNull(activityUpdateProfileVendorBinding.etRatePerMonth.getText()).toString();
+             if (activityUpdateProfileVendorBinding.rbLunchTimeOnly.isChecked()){
+            deliverySlot = activityUpdateProfileVendorBinding.rbLunchTimeOnly.getText().toString();
+             }else if(activityUpdateProfileVendorBinding.rbDinnerTimeOnly.isChecked()){
+            deliverySlot = activityUpdateProfileVendorBinding.rbDinnerTimeOnly.getText().toString();
+             }else {
+            deliverySlot = activityUpdateProfileVendorBinding.rbLunchAndDinner.getText().toString();
+            }
+
+        VendorProfileModel vendorProfileModel = new
+                VendorProfileModel(userId,vendorName,
+                vendorPhone,vendorEmail,vendorShopName,shopAddress,
+                deliverySlot,shidoriRatePerDay,shidoriRatePerWeek,shidoriRatePerMonth);
+
+        mdatabaseReference.child("Vendors").child(userId).setValue(vendorProfileModel);
+
+
+
+
+
+
+
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, final int resultCode, Intent data) {
         if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
@@ -206,7 +246,20 @@ public class UpdateProfileVendor extends AppCompatActivity {
                     activityUpdateProfileVendorBinding.etVendorPhone.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorPhone").getValue()).toString());
                     activityUpdateProfileVendorBinding.etVendorShopName.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("vendorShopName").getValue()).toString());
                     activityUpdateProfileVendorBinding.etVendorShopAddress.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shopAddress").getValue()).toString());
-                   // activityUpdateProfileVendorBinding.rb.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString());
+                    String deliverySlot = Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString();
+
+                    if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbLunchTimeOnly.getText().toString())){
+                        activityUpdateProfileVendorBinding.rbLunchTimeOnly.setChecked(true);
+                    }else if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbDinnerTimeOnly.getText().toString()))
+                    {
+                        activityUpdateProfileVendorBinding.rbDinnerTimeOnly.setChecked(true);
+                    }else if (deliverySlot.equals(activityUpdateProfileVendorBinding.rbLunchAndDinner.getText().toString())){
+                        activityUpdateProfileVendorBinding.rbLunchAndDinner.setChecked(true);
+                    }else {
+                        Toast.makeText(UpdateProfileVendor.this, "Cannot Get Delivery Slot", Toast.LENGTH_SHORT).show();
+                    }
+
+
                     activityUpdateProfileVendorBinding.etRatePerDay.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerDay").getValue()).toString());
                     activityUpdateProfileVendorBinding.etRatePerWeek.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerWeek").getValue()).toString());
                     activityUpdateProfileVendorBinding.etRatePerMonth.setText(Objects.requireNonNull(snapshot.child("Vendors").child(userId).child("shidoriRatePerMonth").getValue()).toString());

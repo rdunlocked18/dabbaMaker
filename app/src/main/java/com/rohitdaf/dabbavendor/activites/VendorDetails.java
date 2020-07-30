@@ -71,8 +71,7 @@ public class VendorDetails extends AppCompatActivity {
     }
     private void makeVendorAUser(){
 
-//        String vendorName = prefs.getString("vendor_name", null);
-//        String vendorPhone = prefs.getString("vendor_phone", null);
+
 
         if(vendorName== null || vendorPhone == null){
             Log.d(TAG, "makeVendorAUser: in if");
